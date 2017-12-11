@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="aviewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+	<!-- internal javascript -->
+	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
+	<!-- font awesome -->
+	<script src="https://use.fontawesome.com/2d05a3f6a5.js"></script>
+	<!-- internal css -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+	<div class="container">
+		<nav>
+			<div class="nav-wrapper header">
+				<a href="#" id="title" class="brand-logo"><i class="fa fa-facebook-official"></i>Survey</a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a class="valign-wrapper waves-effect waves-light btn-large"><span class="fa fa-home"></span></a></li>
+				</ul>
+				</ul>
+			</div>
+		</nav>
+
+		<div id="surveyDiv">
+			<form action="/action_page.php">
+				<div class="input-field col s6">
+					<input id="inputName" type="text" class="validate">
+					<label for="inputName">Name:</label>
+				</div>
+				<div class="input-field col s6">
+					<input id="inputPicture" type="text" class="validate">
+					<label for="inputPicture">Picture (url):</label>
+				</div>
+				<table>
+					<col width="40%">
+  					<col width="60%">
+					<thead>
+						<tr>
+							<th>Question</th>
+							<th>Answer // 1 (strongly disagree) to 5 (strongly agree)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Your mind is always buzzing with unexplored ideas and plans.</td>
+							<td>
+								<p>
+								  <input name="group1" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group1" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group1" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group1" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group1" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>Generally speaking, you rely more on your experience than your imagination.</td>
+							<td>
+								<p>
+								  <input name="group2" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group2" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group2" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group2" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group2" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>You find it easy to stay relaxed and focused even when there is some pressure.</td>
+							<td>
+
+								<p>
+								  <input name="group3" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group3" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group3" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group3" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group3" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+
+							</td>
+						</tr>
+						<tr>
+							<td>You rarely do something just out of sheer curiosity.</td>
+							<td>
+								<p>
+								  <input name="group4" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group4" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group4" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group4" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group4" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>People can rarely upset you.</td>
+							<td>
+								<p>
+								  <input name="group5" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group5" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group5" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group5" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group5" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>It is often difficult for you to relate to other people’s feelings.</td>
+							<td>
+
+								<p>
+								  <input name="group6" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group6" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group6" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group6" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group6" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+
+							</td>
+						</tr>
+						<tr>
+							<td>In a discussion, truth should be more important than people’s sensitivities.</td>
+							<td>
+								<p>
+								  <input name="group7" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group7" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group7" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group7" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group7" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>You rarely get carried away by fantasies and ideas.</td>
+							<td>
+								<p>
+								  <input name="group8" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group8" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group8" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group8" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group8" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+							</td>
+						</tr>
+						<tr>
+							<td>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</td>
+							<td>
+
+								<p>
+								  <input name="group9" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group9" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group9" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group9" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group9" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+
+							</td>
+						</tr>
+						<tr>
+							<td>You feel more energetic after spending time with a group of people.</td>
+							<td>
+
+								<p>
+								  <input name="group10" type="radio" id="test1" />
+								  <label class="right-gap" for="test1">1</label>
+								
+								  <input name="group10" type="radio" id="test2" />
+								  <label class="right-gap" for="test2">2</label>
+								
+								  <input name="group10" type="radio" id="test3"  />
+								  <label class="right-gap" for="test3">3</label>
+								
+								  <input name="group10" type="radio" id="test4"/>
+								  <label class="right-gap" for="test4">4</label>
+
+								  <input name="group10" type="radio" id="test4"/>
+								  <label class="right-gap" for="test5">5</label>
+								</p>
+
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="submitButton">
+					<input class="valign-wrapper waves-effect waves-light btn-large" type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+		<div id="apiFooter">
+			<a class="waves-effect waves-light btn apiButton" href="api/tables">API Table Link</a>
+			<a class="waves-effect waves-light btn apiButton" href="api/waitlist">API Wait List</a>
+		</div>
+	</div>
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function() {
+		    $('select').material_select();
+		  });
+
+	</script>
+</body>
+
+</html>
