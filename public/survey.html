@@ -10,12 +10,34 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<!-- Compiled and minified CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-	<!-- internal javascript -->
-	<script type="text/javascript" src="assets/javascript/javascript.js"></script>
 	<!-- font awesome -->
 	<script src="https://use.fontawesome.com/2d05a3f6a5.js"></script>
 	<!-- internal css -->
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+	<style type="text/css">
+			#title {
+				padding-left: 30px;
+				font-size: 40px;
+			}
+			#apiFooter {
+				padding-top: 30px;
+				padding-left: 15px;
+			}
+			.apiButton {
+				background-color: lightgray;
+			}
+			/*for this page specifically*/
+			.right-gap {
+				padding-right: 30px;
+			}
+			#surveyDiv {
+				padding-top: 30px;
+			}
+			#submitButton {
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+		</style>
 </head>
 
 <body>
@@ -24,14 +46,14 @@
 			<div class="nav-wrapper header">
 				<a href="#" id="title" class="brand-logo"><i class="fa fa-facebook-official"></i>Survey</a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a class="valign-wrapper waves-effect waves-light btn-large"><span class="fa fa-home"></span></a></li>
+					<li><a href="/" class="valign-wrapper waves-effect waves-light btn-large"><span class="fa fa-home"></span></a></li>
 				</ul>
 				</ul>
 			</div>
 		</nav>
 
 		<div id="surveyDiv">
-			<form action="/action_page.php">
+			<form method="POST" role="form">
 				<div class="input-field col s6">
 					<input id="inputName" type="text" class="validate">
 					<label for="inputName">Name:</label>
@@ -42,7 +64,7 @@
 				</div>
 				<table>
 					<col width="40%">
-  					<col width="60%">
+  					<col width="60%" padding-left="20px">
 					<thead>
 						<tr>
 							<th>Question</th>
@@ -54,20 +76,20 @@
 							<td>Your mind is always buzzing with unexplored ideas and plans.</td>
 							<td>
 								<p>
-								  <input name="group1" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group1" type="radio" id="group1test1" />
+								  <label class="right-gap" for="group1test1">1</label>
 								
-								  <input name="group1" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group1" type="radio" id="group1test2" />
+								  <label class="right-gap" for="group1test2">2</label>
 								
-								  <input name="group1" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group1" type="radio" id="group1test3"  />
+								  <label class="right-gap" for="group1test3">3</label>
 								
-								  <input name="group1" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group1" type="radio" id="group1test4"/>
+								  <label class="right-gap" for="group1test4">4</label>
 
-								  <input name="group1" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group1" type="radio" id="group1test5"/>
+								  <label class="right-gap" for="group1test5">5</label>
 								</p>
 							</td>
 						</tr>
@@ -75,20 +97,20 @@
 							<td>Generally speaking, you rely more on your experience than your imagination.</td>
 							<td>
 								<p>
-								  <input name="group2" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group2" type="radio" id="group2test1" />
+								  <label class="right-gap" for="group2test1">1</label>
 								
-								  <input name="group2" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group2" type="radio" id="group2test2" />
+								  <label class="right-gap" for="group2test2">2</label>
 								
-								  <input name="group2" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group2" type="radio" id="group2test3"  />
+								  <label class="right-gap" for="group2test3">3</label>
 								
-								  <input name="group2" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group2" type="radio" id="group2test4"/>
+								  <label class="right-gap" for="group2test4">4</label>
 
-								  <input name="group2" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group2" type="radio" id="group2test5"/>
+								  <label class="right-gap" for="group2test5">5</label>
 								</p>
 							</td>
 						</tr>
@@ -97,20 +119,20 @@
 							<td>
 
 								<p>
-								  <input name="group3" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group3" type="radio" id="group3test1" />
+								  <label class="right-gap" for="group3test1">1</label>
 								
-								  <input name="group3" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group3" type="radio" id="group3test2" />
+								  <label class="right-gap" for="group3test2">2</label>
 								
-								  <input name="group3" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group3" type="radio" id="group3test3"  />
+								  <label class="right-gap" for="group3test3">3</label>
 								
-								  <input name="group3" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group3" type="radio" id="group3test4"/>
+								  <label class="right-gap" for="group3test4">4</label>
 
-								  <input name="group3" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group3" type="radio" id="group3test5"/>
+								  <label class="right-gap" for="group3test5">5</label>
 								</p>
 
 							</td>
@@ -118,42 +140,44 @@
 						<tr>
 							<td>You rarely do something just out of sheer curiosity.</td>
 							<td>
-								<p>
-								  <input name="group4" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
-								
-								  <input name="group4" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
-								
-								  <input name="group4" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
-								
-								  <input name="group4" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
 
-								  <input name="group4" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								<p>
+								  <input name="group4" type="radio" id="group4test1" />
+								  <label class="right-gap" for="group4test1">1</label>
+								
+								  <input name="group4" type="radio" id="group4test2" />
+								  <label class="right-gap" for="group4test2">2</label>
+								
+								  <input name="group4" type="radio" id="group4test3"  />
+								  <label class="right-gap" for="group4test3">3</label>
+								
+								  <input name="group4" type="radio" id="group4test4"/>
+								  <label class="right-gap" for="group4test4">4</label>
+
+								  <input name="group4" type="radio" id="group4test5"/>
+								  <label class="right-gap" for="group4test5">5</label>
 								</p>
+
 							</td>
 						</tr>
 						<tr>
 							<td>People can rarely upset you.</td>
 							<td>
 								<p>
-								  <input name="group5" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group5" type="radio" id="group5test1" />
+								  <label class="right-gap" for="group5test1">1</label>
 								
-								  <input name="group5" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group5" type="radio" id="group5test2" />
+								  <label class="right-gap" for="group5test2">2</label>
 								
-								  <input name="group5" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group5" type="radio" id="group5test3"  />
+								  <label class="right-gap" for="group5test3">3</label>
 								
-								  <input name="group5" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group5" type="radio" id="group5test4"/>
+								  <label class="right-gap" for="group5test4">4</label>
 
-								  <input name="group5" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group5" type="radio" id="group5test5"/>
+								  <label class="right-gap" for="group5test5">5</label>
 								</p>
 							</td>
 						</tr>
@@ -162,20 +186,20 @@
 							<td>
 
 								<p>
-								  <input name="group6" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group6" type="radio" id="group6test1" />
+								  <label class="right-gap" for="group6test1">1</label>
 								
-								  <input name="group6" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group6" type="radio" id="group6test2" />
+								  <label class="right-gap" for="group6test2">2</label>
 								
-								  <input name="group6" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group6" type="radio" id="group6test3"  />
+								  <label class="right-gap" for="group6test3">3</label>
 								
-								  <input name="group6" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group6" type="radio" id="group6test4"/>
+								  <label class="right-gap" for="group6test4">4</label>
 
-								  <input name="group6" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group6" type="radio" id="group6test5"/>
+								  <label class="right-gap" for="group6test5">5</label>
 								</p>
 
 							</td>
@@ -184,20 +208,20 @@
 							<td>In a discussion, truth should be more important than people’s sensitivities.</td>
 							<td>
 								<p>
-								  <input name="group7" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group7" type="radio" id="group7test1" />
+								  <label class="right-gap" for="group7test1">1</label>
 								
-								  <input name="group7" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group7" type="radio" id="group7test2" />
+								  <label class="right-gap" for="group7test2">2</label>
 								
-								  <input name="group7" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group7" type="radio" id="group7test3"  />
+								  <label class="right-gap" for="group7test3">3</label>
 								
-								  <input name="group7" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group7" type="radio" id="group7test4"/>
+								  <label class="right-gap" for="group7test4">4</label>
 
-								  <input name="group7" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group7" type="radio" id="group7test5"/>
+								  <label class="right-gap" for="group7test5">5</label>
 								</p>
 							</td>
 						</tr>
@@ -205,20 +229,20 @@
 							<td>You rarely get carried away by fantasies and ideas.</td>
 							<td>
 								<p>
-								  <input name="group8" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group8" type="radio" id="group8test1" />
+								  <label class="right-gap" for="group8test1">1</label>
 								
-								  <input name="group8" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group8" type="radio" id="group8test2" />
+								  <label class="right-gap" for="group8test2">2</label>
 								
-								  <input name="group8" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group8" type="radio" id="group8test3"  />
+								  <label class="right-gap" for="group8test3">3</label>
 								
-								  <input name="group8" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group8" type="radio" id="group8test4"/>
+								  <label class="right-gap" for="group8test4">4</label>
 
-								  <input name="group8" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group8" type="radio" id="group8test5"/>
+								  <label class="right-gap" for="group8test5">5</label>
 								</p>
 							</td>
 						</tr>
@@ -227,20 +251,20 @@
 							<td>
 
 								<p>
-								  <input name="group9" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group9" type="radio" id="group9test1" />
+								  <label class="right-gap" for="group9test1">1</label>
 								
-								  <input name="group9" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group9" type="radio" id="group9test2" />
+								  <label class="right-gap" for="group9test2">2</label>
 								
-								  <input name="group9" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group9" type="radio" id="group9test3"  />
+								  <label class="right-gap" for="group9test3">3</label>
 								
-								  <input name="group9" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group9" type="radio" id="group9test4"/>
+								  <label class="right-gap" for="group9test4">4</label>
 
-								  <input name="group9" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group9" type="radio" id="group9test4]5"/>
+								  <label class="right-gap" for="group9test5">5</label>
 								</p>
 
 							</td>
@@ -250,20 +274,20 @@
 							<td>
 
 								<p>
-								  <input name="group10" type="radio" id="test1" />
-								  <label class="right-gap" for="test1">1</label>
+								  <input name="group10" type="radio" id="group10test1" />
+								  <label class="right-gap" for="group10test1">1</label>
 								
-								  <input name="group10" type="radio" id="test2" />
-								  <label class="right-gap" for="test2">2</label>
+								  <input name="group10" type="radio" id="group10test2" />
+								  <label class="right-gap" for="group10test2">2</label>
 								
-								  <input name="group10" type="radio" id="test3"  />
-								  <label class="right-gap" for="test3">3</label>
+								  <input name="group10" type="radio" id="group10test3"  />
+								  <label class="right-gap" for="group10test3">3</label>
 								
-								  <input name="group10" type="radio" id="test4"/>
-								  <label class="right-gap" for="test4">4</label>
+								  <input name="group10" type="radio" id="group10test4"/>
+								  <label class="right-gap" for="group10test4">4</label>
 
-								  <input name="group10" type="radio" id="test4"/>
-								  <label class="right-gap" for="test5">5</label>
+								  <input name="group10" type="radio" id="group10test5"/>
+								  <label class="right-gap" for="group10test5">5</label>
 								</p>
 
 							</td>
@@ -271,21 +295,81 @@
 					</tbody>
 				</table>
 				<div id="submitButton">
-					<input class="valign-wrapper waves-effect waves-light btn-large" type="submit" value="Submit">
+					<button id="submit-btn" class="valign-wrapper waves-effect waves-light btn-large" type="submit">Submit</button>
 				</div>
 			</form>
 		</div>
 		<div id="apiFooter">
-			<a class="waves-effect waves-light btn apiButton" href="api/tables">API Table Link</a>
-			<a class="waves-effect waves-light btn apiButton" href="api/waitlist">API Wait List</a>
+			<a class="waves-effect waves-light btn apiButton" href="/all">API Table Link</a>
+			<a class="waves-effect waves-light btn apiButton" href="https://github.com/ccowen/Friend-Finder"> GutHub Repo</a>
+		</div>
+
+		<!-- modal --> 
+		<div id="resultsModal" class="modal-mycss">
+
+			<!-- Modal content -->
+			<div class="modal-content-mycss">
+			  <span class="close-mycss">&times;</span>
+			  <h2 class="modalHeader">expressive typography:<br>create</h2>
+			  <p id="modalText-mycss">You can color the text by passing your mouse over the image (clicks not needed).</p>
+			</div>
+
 		</div>
 	</div>
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script>
 		$(document).ready(function() {
+
+			// materialize functionality
 		    $('select').material_select();
-		  });
+
+		    // Get the modal
+    		var modal = document.getElementById('resultsModal');
+    		// no modal yet
+    		modal.style.display = "none";
+
+    		function subtractScores(input1, input2) {
+
+    			var difference;
+
+    			for (var i = 0; i <= 10; i++) {
+    				difference += input1.scores[i] - input2.scores[2]
+    			}
+
+    			return parseInt(difference);
+    		}
+		    // when the form is submitted
+		    $("#submitButton").on("click", function(event) {
+				event.preventDefault();
+				var newForm = {
+					name: $("#inputName").val().trim(),
+					photo: $("#inputPicture").val().trim()
+					// scores: [ 
+						// $("#group1").val().trim(),
+						// $("#group2").val().trim(),
+						// $("#group3").val().trim(),
+						// $("#group4").val().trim(),
+						// $("#group5").val().trim(),
+						// $("#group6").val().trim(),
+						// $("#group7").val().trim(),
+						// $("#group8").val().trim(),
+						// $("#group9").val().trim(),
+						// $("#group10").val().trim()
+					//]
+					
+				};
+
+				// Question: What does this code do??
+				$.post("/api/new", newForm)
+				.done(function(data) {
+					console.log(data);
+
+					modal.style.display = "block";
+				});
+			});
+
+		});
 
 	</script>
 </body>

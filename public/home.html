@@ -14,7 +14,41 @@
 		<!-- font awesome -->
 		<script src="https://use.fontawesome.com/2d05a3f6a5.js"></script>
 		<!-- internal css -->
-		<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+		<!-- <link rel="stylesheet" type="text/css" href="assets/css/style.css"> -->
+		<style type="text/css">
+			
+			#title {
+				padding-left: 30px;
+				font-size: 40px;
+			}
+			/*.header {
+				background-color: navy;
+			}
+			*/
+			#apiFooter {
+				padding-top: 30px;
+				padding-left: 15px;
+			}
+
+			#surveyDiv {
+				padding-top: 30px;
+			}
+			.apiButton {
+				background-color: lightgray;
+			}
+
+			/*#EE6E73*/
+
+			.right-gap {
+				padding-right: 30px;
+			}
+
+			#submitButton {
+				padding-top: 20px;
+				padding-bottom: 20px;
+			}
+
+		</style>
 	</head>
 
 	<body>
@@ -23,14 +57,14 @@
 				<div class="nav-wrapper header">
 					<a href="#" id="title" class="brand-logo"><i class="fa fa-facebook-official"></i>Friend Finder</a>
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						<li><a class="valign-wrapper waves-effect waves-light btn-large" href="links.html"><span class="fa fa-check-square-o"></span> Take Survey</a></li>
+						<li><a href="/survey" class="valign-wrapper waves-effect waves-light btn-large" href="links.html"><span class="fa fa-check-square-o"></span> Take Survey</a></li>
 					</ul>
 					</ul>
 				</div>
 			</nav>
 			<div id="apiFooter">
-				<a class="waves-effect waves-light btn apiButton" href="api/tables">API Table Link</a>
-				<a class="waves-effect waves-light btn apiButton" href="api/waitlist">API Wait List</a>
+				<a class="waves-effect waves-light btn apiButton" href="/all">API Table Link</a>
+				<a class="waves-effect waves-light btn apiButton" href="https://github.com/ccowen/Friend-Finder"> GutHub Repo</a>
 			</div>
 
 		</div>
