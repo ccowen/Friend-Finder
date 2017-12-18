@@ -8,7 +8,7 @@ var fs = require("fs");
 // Sets up the Express App
 // =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = 3001;
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -31,23 +31,6 @@ app.get("/all", function(req, res) {
   // get friends from its file
   res.sendFile(path.join(__dirname, "app/data/friends.js"));
 });
-
-// Search for Specific Character (or all characters) - provides JSON
-// app.get("/api/:characters?", function(req, res) {
-//   var chosen = req.params.characters;
-
-//   if (chosen) {
-//     console.log(chosen);
-
-//     for (var i = 0; i < characters.length; i++) {
-//       if (chosen === characters[i].routeName) {
-//         return res.json(characters[i]);
-//       }
-//     }
-//     return res.json(false);
-//   }
-//   return res.json(characters);
-// });
 
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {

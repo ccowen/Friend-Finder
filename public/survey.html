@@ -20,8 +20,7 @@
 				font-size: 40px;
 			}
 			#apiFooter {
-				padding-top: 30px;
-				padding-left: 15px;
+				padding: 30px 0px 10px 15px;
 			}
 			.apiButton {
 				background-color: lightgray;
@@ -31,12 +30,33 @@
 				padding-right: 30px;
 			}
 			#surveyDiv {
-				padding-top: 30px;
+				padding: 30px 30px 0px 30px;
 			}
 			#submitButton {
 				padding-top: 20px;
-				padding-bottom: 20px;
 			}
+			/*modal*/
+			.modal-mycss {
+			    display: none; /* Hidden by default */
+			    position: fixed; /* Stay in place */
+			    z-index: 1; /* Sit on top */
+			    left: 20%;
+			    top: 10%;
+			    width: 70%; /* Full width */
+			    height: 50%; /* Full height */
+			    overflow: auto; /* Enable scroll if needed */
+			    background-color: #F6A2AD;
+			    padding: 10px;
+			}
+			/* The Close Button */
+			.close-mycss {
+			    color: #aaa;
+			    float: right;
+			    margin-right: 30px;
+			    font-size: 28px;
+			    font-weight: bold;
+			}
+
 		</style>
 </head>
 
@@ -71,25 +91,25 @@
 							<th>Answer // 1 (strongly disagree) to 5 (strongly agree)</th>
 						</tr>
 					</thead>
-					<tbody>
-						<tr>
+					<tbody id="tableBody">
+						<!-- <tr>
 							<td>Your mind is always buzzing with unexplored ideas and plans.</td>
 							<td>
 								<p>
-								  <input name="group1" type="radio" id="group1test1" />
-								  <label class="right-gap" for="group1test1">1</label>
+								  <input name="group1" type="radio" id="group1test1" value="1" />
+								  <label class="group1 right-gap" for="group1test1">1</label>
 								
 								  <input name="group1" type="radio" id="group1test2" />
-								  <label class="right-gap" for="group1test2">2</label>
+								  <label class="group1 right-gap" for="group1test2">2</label>
 								
 								  <input name="group1" type="radio" id="group1test3"  />
-								  <label class="right-gap" for="group1test3">3</label>
+								  <label class="group1 right-gap" for="group1test3">3</label>
 								
 								  <input name="group1" type="radio" id="group1test4"/>
-								  <label class="right-gap" for="group1test4">4</label>
+								  <label class="group1 right-gap" for="group1test4">4</label>
 
 								  <input name="group1" type="radio" id="group1test5"/>
-								  <label class="right-gap" for="group1test5">5</label>
+								  <label class="group1 right-gap" for="group1test5">5</label>
 								</p>
 							</td>
 						</tr>
@@ -291,7 +311,7 @@
 								</p>
 
 							</td>
-						</tr>
+						</tr> -->
 					</tbody>
 				</table>
 				<div id="submitButton">
@@ -310,8 +330,12 @@
 			<!-- Modal content -->
 			<div class="modal-content-mycss">
 			  <span class="close-mycss">&times;</span>
-			  <h2 class="modalHeader">expressive typography:<br>create</h2>
-			  <p id="modalText-mycss">You can color the text by passing your mouse over the image (clicks not needed).</p>
+			  <h4 class="modalHeader">Here's your closest match!</h4>
+			  <p class="flow-text">Score: <span id="modalLowestScore"></span>
+			  	<br>Name: <span id="modalLowestScoreName"></span>
+			  	<br>Picture: <span id='modalLowestScorePicture'>
+			  	<br>
+			  </p>
 			</div>
 
 		</div>
@@ -321,13 +345,61 @@
 	<script>
 		$(document).ready(function() {
 
+			var questions = [
+
+				"Your mind is always buzzing with unexplored ideas and plans.",
+
+				"Generally speaking, you rely more on your experience than your imagination.",
+
+				"You find it easy to stay relaxed and focused even when there is some pressure.",
+
+				"You rarely do something just out of sheer curiosity.",
+
+				"People can rarely upset you.",
+
+				"It is often difficult for you to relate to other people’s feelings.",
+
+				"In a discussion, truth should be more important than people’s sensitivities.",
+
+				"You rarely get carried away by fantasies and ideas.",
+
+				"You think that everyone’s views should be respected regardless of whether they are supported by facts or not.",
+
+				"You feel more energetic after spending time with a group of people.",
+			];
+
+			for (var i = 0; i < questions.length; i++) {
+				$("#tableBody").append( "<tr>" +
+					"<td>" + questions[i] + "</td>" +
+					"<td>" +
+						"<p>" +
+						  "<input name='group" + [i + 1] + "' type='radio' id='group" + [i + 1] + "test1' value='1' />" +
+						  "<label class='group" + [i + 1] + " right-gap' for='group" + [i + 1] + "test1'>1</label>" +
+
+						  "<input name='group" + [i + 1] + "' type='radio' id='group" + [i + 1] + "test2' value='2' />" +
+						  "<label class='group" + [i + 1] + " right-gap' for='group" + [i + 1] + "test2'>2</label>" +
+
+						  "<input name='group" + [i + 1] + "' type='radio' id='group" + [i + 1] + "test3' value='3' />" +
+						  "<label class='group" + [i + 1] + " right-gap' for='group" + [i + 1] + "test3'>3</label>" +
+
+						  "<input name='group" + [i + 1] + "' type='radio' id='group" + [i + 1] + "test4' value='4' />" +
+						  "<label class='group" + [i + 1] + " right-gap' for='group" + [i + 1] + "test4'>4</label>" +
+
+						  "<input name='group" + [i + 1] + "' type='radio' id='group" + [i + 1] + "test5' value='5' />" +
+						  "<label class='group" + [i + 1] + " right-gap' for='group" + [i + 1] + "test5'>5</label>" +
+
+						"</p>" +
+					"</td>" +
+				"</tr>" );
+			}
+
 			// materialize functionality
 		    $('select').material_select();
 
 		    // Get the modal
     		var modal = document.getElementById('resultsModal');
     		// no modal yet
-    		modal.style.display = "none";
+    		//modal.style.display = "none";
 
     		function subtractScores(input1, input2) {
 
@@ -339,33 +411,66 @@
 
     			return parseInt(difference);
     		}
+
+    		var lowestScore;
+    		var lowestScoreArrayNumber;
+
+    		function findLowestScore(newData, allData) {
+    			// find the first difference, for now this is the lowest
+    			var firstScore = subtractScores(newData, allData[0]);
+    			// set the first score as the lowest score variable
+    			lowestScore = firstScore;
+    			lowestScoreArrayNumber = 0;
+
+    			// compare all difference, see if there is a lower score
+    			for (var i = 1; i <= data.length; i++) {
+    				var compareScore = subtractScores(newData, allData[i]);
+
+    				if (compareScore < lowestScore) {
+    					lowestScore = compareScore;
+    					lowestScoreArrayNumber = [i];
+    				};
+
+    			};
+
+    			//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
+
+    		};
+
 		    // when the form is submitted
 		    $("#submitButton").on("click", function(event) {
 				event.preventDefault();
 				var newForm = {
-					name: $("#inputName").val().trim(),
-					photo: $("#inputPicture").val().trim()
-					// scores: [ 
-						// $("#group1").val().trim(),
-						// $("#group2").val().trim(),
-						// $("#group3").val().trim(),
-						// $("#group4").val().trim(),
-						// $("#group5").val().trim(),
-						// $("#group6").val().trim(),
-						// $("#group7").val().trim(),
-						// $("#group8").val().trim(),
-						// $("#group9").val().trim(),
-						// $("#group10").val().trim()
-					//]
+					"name": $("#inputName").val().trim(),
+					"photo": $("#inputPicture").val().trim(),
+					"scores": [ 
+						$("input[name=group1]").val().trim(),
+						$("input[name=group2]").val().trim(),
+						$("input[name=group3]").val().trim(),
+						$("input[name=group4]").val().trim(),
+						$("input[name=group5]").val().trim(),
+						$("input[name=group6]").val().trim(),
+						$("input[name=group7]").val().trim(),
+						$("input[name=group8]").val().trim(),
+						$("input[name=group9]").val().trim(),
+						$("input[name=group10]").val().trim()
+					]
+
+				//console.log(newForm);
 					
 				};
 
-				// Question: What does this code do??
 				$.post("/api/new", newForm)
 				.done(function(data) {
 					console.log(data);
 
 					modal.style.display = "block";
+
+					var span = document.getElementsByClassName("close-mycss")[0];
+					span.onclick = function() {
+				        modal.style.display = "none";
+				    }
+
 				});
 			});
 
