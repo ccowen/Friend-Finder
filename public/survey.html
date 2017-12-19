@@ -124,7 +124,10 @@
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script>
+
 		$(document).ready(function() {
+
+			
 
 			var questions = [
 
@@ -243,10 +246,7 @@
 
 				$.post("/api/new", newForm)
 				.done(function(data) {
-					console.log(data);
-
-					modal.style.display = "block";
-
+					
 					var span = document.getElementsByClassName("close-mycss")[0];
 					span.onclick = function() {
 				        modal.style.display = "none";
