@@ -124,10 +124,10 @@
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script>
-
 		$(document).ready(function() {
 
-			
+			// require npm jsonfile
+			//var jsonfile = require('jsonfile');
 
 			var questions = [
 
@@ -247,6 +247,20 @@
 				$.post("/api/new", newForm)
 				.done(function(data) {
 					
+					// var rFile = 'app/data/friends.js';
+
+					// var pastResults;
+
+					// jsonfile.readFile(rFile, function(err, obj) {
+					// 	pastResults = "[" + obj + "]";
+					// });
+
+					// modal.style.display = "block";
+
+					// $("$modalLowestScoreName").html(pastResults);
+
+					var modal = $("#resultsModal");
+
 					var span = document.getElementsByClassName("close-mycss")[0];
 					span.onclick = function() {
 				        modal.style.display = "none";
