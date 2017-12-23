@@ -15,6 +15,47 @@ var PORT = 3001;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// functions
+// =============================================================
+function subtractScores(input1, input2) {
+
+	var difference;
+
+	for (var i = 0; i <= 10; i++) {
+		difference += input1.scores[i] - input2.scores[2]
+	};
+
+	return parseInt(difference);
+	
+};
+
+var lowestScore;
+var lowestScoreArrayNumber;
+
+function findLowestScore(newData, allData) {
+	console.log(allData);
+
+	// find the first difference, for now this is the lowest
+	var firstScore = subtractScores(newData, allData[0]);
+	// set the first score as the lowest score variable
+	lowestScore = firstScore;
+	lowestScoreArrayNumber = 0;
+
+	// compare all difference, see if there is a lower score
+	for (var i = 1; i <= allData.length; i++) {
+		var compareScore = subtractScores(newData, allData[i]);
+
+		if (compareScore < lowestScore) {
+			lowestScore = compareScore;
+			lowestScoreArrayNumber = [i];
+		};
+
+	};
+
+	//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
+
+};
+
 // Routes
 // =============================================================
 
@@ -40,15 +81,36 @@ app.post("/api/new", function(req, res) {
 
   console.log(newForm);
 
-  var file = 'app/data/friends.js';
+  var file = './app/data/friends.js';
 
-  var obj = newForm;
+  // var currentData;
  
-  jsonfile.writeFile(file, obj, {flag: 'a'}, function (err) {
-    console.error(err)
-  });
+  jsonfile.readFile(file, function(err, obj) {
+	  console.log(obj);
+
+	  // currentData = obj;
+
+  	  obj.push(newForm);
+
+  	  jsonfile.writeFile(file, obj, function(err) {
+	  	console.log(err);
+
+	  	console.log(obj , "obj");
+
+	    findLowestScore(newForm, obj);
+
+	  	console.log(findLowestScore(newForm, obj));
+	  	
+	  });
+
+	});
+
+	  
+
 
   res.json(newForm);
+
+
 
 });
 

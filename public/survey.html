@@ -95,9 +95,11 @@
 						<!-- append questions -->
 					</tbody>
 				</table>
+
 				<div id="submitButton">
 					<button id="submit-btn" class="valign-wrapper waves-effect waves-light btn-large" type="submit">Submit</button>
 				</div>
+
 			</form>
 		</div>
 		<div id="apiFooter">
@@ -121,13 +123,11 @@
 
 		</div>
 	</div>
+
 	<!-- Compiled and minified JavaScript -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
 	<script>
 		$(document).ready(function() {
-
-			// require npm jsonfile
-			//var jsonfile = require('jsonfile');
 
 			var questions = [
 
@@ -183,43 +183,9 @@
 		    // Get the modal
     		var modal = document.getElementById('resultsModal');
     		// no modal yet
-    		//modal.style.display = "none";
+    		modal.style.display = "none";
 
-    		function subtractScores(input1, input2) {
-
-    			var difference;
-
-    			for (var i = 0; i <= 10; i++) {
-    				difference += input1.scores[i] - input2.scores[2]
-    			}
-
-    			return parseInt(difference);
-    		}
-
-    		var lowestScore;
-    		var lowestScoreArrayNumber;
-
-    		function findLowestScore(newData, allData) {
-    			// find the first difference, for now this is the lowest
-    			var firstScore = subtractScores(newData, allData[0]);
-    			// set the first score as the lowest score variable
-    			lowestScore = firstScore;
-    			lowestScoreArrayNumber = 0;
-
-    			// compare all difference, see if there is a lower score
-    			for (var i = 1; i <= data.length; i++) {
-    				var compareScore = subtractScores(newData, allData[i]);
-
-    				if (compareScore < lowestScore) {
-    					lowestScore = compareScore;
-    					lowestScoreArrayNumber = [i];
-    				};
-
-    			};
-
-    			//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
-
-    		};
+    		
 
 		    // when the form is submitted
 		    $("#submitButton").on("click", function(event) {
@@ -228,21 +194,23 @@
 					"name": $("#inputName").val().trim(),
 					"photo": $("#inputPicture").val().trim(),
 					"scores": [ 
-						$("input[name=group1]").val().trim(),
-						$("input[name=group2]").val().trim(),
-						$("input[name=group3]").val().trim(),
-						$("input[name=group4]").val().trim(),
-						$("input[name=group5]").val().trim(),
-						$("input[name=group6]").val().trim(),
-						$("input[name=group7]").val().trim(),
-						$("input[name=group8]").val().trim(),
-						$("input[name=group9]").val().trim(),
-						$("input[name=group10]").val().trim()
+						$("input[name=group1]:checked").val(),
+						$("input[name=group2]:checked").val(),
+						$("input[name=group3]:checked").val(),
+						$("input[name=group4]:checked").val(),
+						$("input[name=group5]:checked").val(),
+						$("input[name=group6]:checked").val(),
+						$("input[name=group7]:checked").val(),
+						$("input[name=group8]:checked").val(),
+						$("input[name=group9]:checked").val(),
+						$("input[name=group10]:checked").val()
 					]
-
-				//console.log(newForm);
 					
 				};
+
+				console.log(newForm);
+
+				$.ajaxSetup({ traditional: true });
 
 				$.post("/api/new", newForm)
 				.done(function(data) {
@@ -255,11 +223,9 @@
 					// 	pastResults = "[" + obj + "]";
 					// });
 
-					// modal.style.display = "block";
+					modal.style.display = "block";
 
 					// $("$modalLowestScoreName").html(pastResults);
-
-					var modal = $("#resultsModal");
 
 					var span = document.getElementsByClassName("close-mycss")[0];
 					span.onclick = function() {
