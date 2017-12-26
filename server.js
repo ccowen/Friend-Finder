@@ -17,12 +17,20 @@ app.use(bodyParser.json());
 
 // functions
 // =============================================================
+function getRandomInt(min, max) {
+
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+
+};
+
 function subtractScores(input1, input2) {
 
-	var difference;
+	var difference = 0;
 
-	for (var i = 0; i <= 10; i++) {
-		difference += input1.scores[i] - input2.scores[2]
+	for (var i = 0; i < 10; i++) {
+		difference += parseInt(input1.scores[i]) - parseInt(input2.scores[i]);
 	};
 
 	return parseInt(difference);
@@ -33,26 +41,46 @@ var lowestScore;
 var lowestScoreArrayNumber;
 
 function findLowestScore(newData, allData) {
-	console.log(allData);
+	console.log(allData, "this is all data in the lowestscore function");
+	console.log(newData);
+
+	console.log("subtractScores in lowestscore function" + subtractScores(newData, allData[0]));
 
 	// find the first difference, for now this is the lowest
 	var firstScore = subtractScores(newData, allData[0]);
+
+	console.log("FIRSTSCORE" + firstScore);
+
 	// set the first score as the lowest score variable
-	lowestScore = firstScore;
-	lowestScoreArrayNumber = 0;
+	var lowestScore = firstScore;
+	var lowestScoreArrayNumber = 0;
 
 	// compare all difference, see if there is a lower score
-	for (var i = 1; i <= allData.length; i++) {
+	for (var i = 1; i < allData.length; i++) {
 		var compareScore = subtractScores(newData, allData[i]);
 
 		if (compareScore < lowestScore) {
-			lowestScore = compareScore;
-			lowestScoreArrayNumber = [i];
+		 	lowestScore = compareScore;
+		 	lowestScoreArrayNumber = [i];
+
+		 	console.log("THIS IS NOW THE LOWEST SCORE " + lowestScore + " ARRAY NUMBER " + lowestScoreArrayNumber);
+
 		};
+
+		// ---- can write an else if the scores are equal
+		// else if (compareScore < lowestScore) {
+		// 	if 
+		// }
+
+		//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
+
+		console.log("THIS IS NOW THE LOWEST SCORE " + lowestScore + " ARRAY NUMBER " + lowestScoreArrayNumber);
+
 
 	};
 
-	//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
+	return lowestScoreArrayNumber;
+
 
 };
 
@@ -86,7 +114,7 @@ app.post("/api/new", function(req, res) {
   // var currentData;
  
   jsonfile.readFile(file, function(err, obj) {
-	  console.log(obj);
+	  console.log("FIRST CONSOLE LOG OBJ" + obj);
 
 	  // currentData = obj;
 
@@ -95,12 +123,13 @@ app.post("/api/new", function(req, res) {
   	  jsonfile.writeFile(file, obj, function(err) {
 	  	console.log(err);
 
-	  	console.log(obj , "obj");
+	    var lowestScoreArrayNumber = findLowestScore(newForm, obj);
 
-	    findLowestScore(newForm, obj);
+	    console.log(obj[lowestScoreArrayNumber]);
+	    console.log(obj[lowestScoreArrayNumber].name);
+	    console.log(obj[lowestScoreArrayNumber].photo);
 
-	  	console.log(findLowestScore(newForm, obj));
-	  	
+
 	  });
 
 	});
