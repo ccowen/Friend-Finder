@@ -30,7 +30,7 @@ function subtractScores(input1, input2) {
 	var difference = 0;
 
 	for (var i = 0; i < 10; i++) {
-		difference += parseInt(input1.scores[i]) - parseInt(input2.scores[i]);
+		difference += Math.abs(parseInt(input1.scores[i]) - parseInt(input2.scores[i]));
 	};
 
 	return parseInt(difference);
@@ -65,12 +65,18 @@ function findLowestScore(newData, allData) {
 
 		 	console.log("THIS IS NOW THE LOWEST SCORE " + lowestScore + " ARRAY NUMBER " + lowestScoreArrayNumber);
 
-		};
+		}
 
-		// ---- can write an else if the scores are equal
-		// else if (compareScore < lowestScore) {
-		// 	if 
-		// }
+		// ---- else if the scores are equal, randomize who will be matched, will not always move to the most recent matching result
+		else if (compareScore == lowestScore) {
+			if ((getRandomInt(1, 5)) >= 3) {
+				lowestScore = compareScore;
+			 	lowestScoreArrayNumber = [i];
+
+			 	console.log("THIS IS NOW THE LOWEST SCORE " + lowestScore + " ARRAY NUMBER " + lowestScoreArrayNumber);
+			};
+
+		};
 
 		//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
 
@@ -105,13 +111,14 @@ app.get("/all", function(req, res) {
 // Create New Characters - takes in JSON input
 app.post("/api/new", function(req, res) {
 
+  // get the survey form
   var newForm = req.body;
 
-  console.log(newForm);
-
+  // file to add survey data to
   var file = './app/data/friends.js';
 
-  // var currentData;
+  // declare variable for the closet match
+  var lowestScoreArrayNumber;
  
   jsonfile.readFile(file, function(err, obj) {
 	  console.log("FIRST CONSOLE LOG OBJ" + obj);
@@ -123,23 +130,25 @@ app.post("/api/new", function(req, res) {
   	  jsonfile.writeFile(file, obj, function(err) {
 	  	console.log(err);
 
-	    var lowestScoreArrayNumber = findLowestScore(newForm, obj);
+	    lowestScoreArrayNumber = findLowestScore(newForm, obj);
 
 	    console.log(obj[lowestScoreArrayNumber]);
 	    console.log(obj[lowestScoreArrayNumber].name);
 	    console.log(obj[lowestScoreArrayNumber].photo);
 
+	    var resultDataForModal = "<p class='flow-text'>Score: <span id='modalLowestScore'></span>" +
+			  	"<br>Name: <span id='modalLowestScoreName'>" + obj[lowestScoreArrayNumber].name + "</span>" +
+			  	"<br>Picture: <img id='modalLowestScorePicture'src='" + obj[lowestScoreArrayNumber].photo + "'>" +
+			  	"<br>" +
+			  "</p>";
+
+	    module.exports = resultDataForModal;
+
+	    console.log(resultDataForModal);
 
 	  });
 
 	});
-
-	  
-
-
-  res.json(newForm);
-
-
 
 });
 

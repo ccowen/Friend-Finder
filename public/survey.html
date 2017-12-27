@@ -114,11 +114,7 @@
 			<div class="modal-content-mycss">
 			  <span class="close-mycss">&times;</span>
 			  <h4 class="modalHeader">Here's your closest match!</h4>
-			  <p class="flow-text">Score: <span id="modalLowestScore"></span>
-			  	<br>Name: <span id="modalLowestScoreName"></span>
-			  	<br>Picture: <span id='modalLowestScorePicture'>
-			  	<br>
-			  </p>
+
 			</div>
 
 		</div>
@@ -183,9 +179,7 @@
 		    // Get the modal
     		var modal = document.getElementById('resultsModal');
     		// no modal yet
-    		modal.style.display = "none";
-
-    		
+    		modal.style.display = "none";    		
 
 		    // when the form is submitted
 		    $("#submitButton").on("click", function(event) {
@@ -214,23 +208,21 @@
 
 				$.post("/api/new", newForm)
 				.done(function(data) {
-					
-					// var rFile = 'app/data/friends.js';
-
-					// var pastResults;
-
-					// jsonfile.readFile(rFile, function(err, obj) {
-					// 	pastResults = "[" + obj + "]";
-					// });
 
 					modal.style.display = "block";
-
-					// $("$modalLowestScoreName").html(pastResults);
 
 					var span = document.getElementsByClassName("close-mycss")[0];
 					span.onclick = function() {
 				        modal.style.display = "none";
 				    }
+
+				    var modalContents = require('../server.js');
+
+				    console.log("modal contents: " + modalContents)
+
+				    $( ".modal-content-mycss" ).append(modalContents);
+
+
 
 				});
 			});
