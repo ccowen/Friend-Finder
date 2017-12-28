@@ -80,9 +80,6 @@ function findLowestScore(newData, allData) {
 
 		//after the loop is complete, the var lowestscore should be the lowest score and lowestScoreArrayNumber should identify the best match
 
-		console.log("THIS IS NOW THE LOWEST SCORE " + lowestScore + " ARRAY NUMBER " + lowestScoreArrayNumber);
-
-
 	};
 
 	return lowestScoreArrayNumber;
@@ -127,7 +124,7 @@ app.post("/api/new", function(req, res) {
 
   	  obj.push(newForm);
 
-  	  jsonfile.writeFile(file, obj, function(err) {
+  	  jsonfile.writeFile(file, obj, {spaces: 2, EOL: '\r\n'}, function(err) {
 	  	console.log(err);
 
 	    lowestScoreArrayNumber = findLowestScore(newForm, obj);
@@ -142,9 +139,8 @@ app.post("/api/new", function(req, res) {
 			  	"<br>" +
 			  "</p>";
 
-	    module.exports = resultDataForModal;
 
-	    console.log(resultDataForModal);
+	    res.send(resultDataForModal);
 
 	  });
 

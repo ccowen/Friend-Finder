@@ -216,11 +216,9 @@
 				        modal.style.display = "none";
 				    }
 
-				    var modalContents = require('../server.js');
-
-				    console.log("modal contents: " + modalContents)
-
-				    $( ".modal-content-mycss" ).append(modalContents);
+				    console.log(data);
+				    
+				    $( ".modal-content-mycss" ).append(data);
 
 
 
