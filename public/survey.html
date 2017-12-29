@@ -40,19 +40,32 @@
 			    display: none; /* Hidden by default */
 			    position: fixed; /* Stay in place */
 			    z-index: 1; /* Sit on top */
-			    left: 20%;
-			    top: 10%;
-			    width: 70%; /* Full width */
-			    height: 50%; /* Full height */
-			    overflow: auto; /* Enable scroll if needed */
-			    background-color: #F6A2AD;
-			    padding: 10px;
+				position: fixed;
+				  top: 50%;
+				  left: 50%;
+				  right: auto;
+				  bottom: auto;
+				transform: translate(-50%, -50%);
+  			    background-color: white;
+			    border: 10px solid #F6A2AD;
+			    text-align: center;
+			    padding: 25px 25px 0px 25px;
+			}
+			h4 {
+				clear: both;
+			}
+			#modalLowestScorePicture {
+				width: 300px;
+			}
+			.modal-content-mycss {
+				position: relative;
 			}
 			/* The Close Button */
 			.close-mycss {
 			    color: #aaa;
-			    float: right;
-			    margin-right: 30px;
+				position: absolute;
+				top: -45px;
+				right: -15px;
 			    font-size: 28px;
 			    font-weight: bold;
 			}
@@ -113,8 +126,7 @@
 			<!-- Modal content -->
 			<div class="modal-content-mycss">
 			  <span class="close-mycss">&times;</span>
-			  <h4 class="modalHeader">Here's your closest match!</h4>
-
+			  <h4 class="modalHeader">Your closest match!</h4>
 			</div>
 
 		</div>
@@ -204,6 +216,8 @@
 
 				console.log(newForm);
 
+				// if (newForm) run a function that says if have all data, do ajax request
+
 				$.ajaxSetup({ traditional: true });
 
 				$.post("/api/new", newForm)
@@ -217,10 +231,8 @@
 				    }
 
 				    console.log(data);
-				    
+
 				    $( ".modal-content-mycss" ).append(data);
-
-
 
 				});
 			});
